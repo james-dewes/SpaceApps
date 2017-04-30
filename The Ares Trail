@@ -1054,6 +1054,7 @@ public class AresTrail {
             drink();
             drive();
             degrade();
+            problem();
             environment.newSol();
         }
 
