@@ -7,16 +7,15 @@ package arestrail;
 
 /**
  *
- * @author
+ * @author Ben Wooff
  */
-public class Captain extends Crew {
+ public class Scientist extends Crew {
+        
+        Scientist(String aName){
+            super(aName,2);
+        }
+        
+      
+     
 
-    public Captain(String aName){
-        super(aName,1);
     }
-    
-   public void newTurn() {
-
-    }
-
-}
