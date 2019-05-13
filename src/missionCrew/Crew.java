@@ -11,11 +11,16 @@ import java.util.*;
  * @author james.dewes
  */
 public class Crew {
+    
     private Collection<CrewMember> rosta;
     private Captain commander;
+    private int dehydrationSeverity;
+    private int scienceGainRate;
     
-    Crew(){
+    
+    public Crew(){
         rosta = new LinkedList<>();
+        dehydrationSeverity = 0;
     }
     
     /**
@@ -45,13 +50,30 @@ public class Crew {
         return totalWater;
     }
     
-    public void addCommander(Captain aCaptain)
-    {
-        commander = aCaptain;
-        addMember(aCaptain);
+    public void addCommander(String aName)
+    {  
+        commander = new Captain(aName);
+        addMember(commander);
     }
     
-    public void addMember(CrewMember aMember){
+    /*
+    * Add a non-command member and add 25 to the science gain rate
+    * of the crew.
+    */
+    public void addMember(String aName){
+        addMember(new Scientist(aName));
+        scienceGainRate =+ 25;
+    }
+    
+    private void addMember(CrewMember aMember){
         rosta.add(aMember);
+    }
+    
+    public int getScienceGainRate() {
+        return scienceGainRate;
+    }
+
+    public void setScienceGainRate(int scienceGainRate) {
+        this.scienceGainRate = scienceGainRate;
     }
 }

@@ -8,9 +8,9 @@ package rover;
 
 /**
  *
- * @author
+ * @author Ben Wooff & James Dewes
  */
-class Battery {
+class Battery extends Component{
 
         private static int maximumStorage = 60000;
         private static int currentStorage = 60000;
@@ -74,9 +74,9 @@ class Battery {
             }
         }
         
-        public void deplete()
+        public void deplete(int aDraw)
         {
-            setCurrentCharge(getCurrentCharge() - draw);
+            setCurrentCharge(getCurrentCharge() - aDraw);
         }
 
     }
