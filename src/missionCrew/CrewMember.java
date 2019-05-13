@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package arestrail;
+package missionCrew;
 
 /**
  *
  * @author james.dewes
  */
-public abstract class Crew {
+public abstract class CrewMember {
     String name;
     int oxygenConsumption;
     int waterUsage;
@@ -17,7 +17,7 @@ public abstract class Crew {
     int actions;
     int baseActions;
 
-    public Crew(String aName, int anActions)
+    public CrewMember(String aName, int anActions)
     {
         oxygenConsumption = 20;
         waterUsage = 4;

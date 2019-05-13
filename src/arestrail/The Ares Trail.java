@@ -1,5 +1,6 @@
 package arestrail;
 
+import missionCrew.*;
 import rover.Rover;
 import java.util.Random;
 import java.util.Scanner;
@@ -128,11 +129,7 @@ public class AresTrail {
 
         public void calculateHemisphere() {
             int modulus = (int) (originDirection % 360);
-            if (modulus > 180) {
-                northernHemisphere = false;
-            } else {
-                northernHemisphere = true;
-            }
+            northernHemisphere = modulus <= 180;
         }
 
         public boolean getHemishphere() {
@@ -207,20 +204,21 @@ public class AresTrail {
         int journeyLength;
         int toGo;
         int dehydrationSeverity = 0;
+        Crew crew;
         Rover rover;
         Captain captain;
         Environment environment;
         Lifter lifter;
         Lander lander;
-        Scientist crew[] = new Scientist[3];
         Random ran = new Random();
 
         public Mission() {
             rover = new Rover();
-            captain = new Captain("Melissa");
-            crew[0] = new Scientist("Rick");
-            crew[1] = new Scientist("Mark");
-            crew[2] = new Scientist("Beth");
+            crew = new Crew();
+            crew.addCommander(new Captain("Melissa"));
+            crew.addMember(new Scientist("Rick"));
+            crew.addMember(new Scientist("Mark"));
+            crew.addMember(new Scientist("Beth"));
             environment = new Environment();
             //lifter = new Lifter(1401, (double) 0.765);
             //lander = new Lander(7785, (double) 0.092);
@@ -234,13 +232,9 @@ public class AresTrail {
             sci = sci * environment.getScienceGainRate();
             science = science + sci;
         }
-
-
-
         public void recharge() {
             rover.recharge();
         }
-
         public void degrade() {
             rover.degrade();
         }
@@ -514,6 +508,7 @@ public class AresTrail {
 
         public void systemStatus() {
             System.out.println("System status on sol " + mission.environment.getSol());
+            System.out.println(rover.toString());
             System.out.println("\nBattery:");
             System.out.println("Charge: " + mission.rover.battery.getCurrentCharge());
             System.out.println("Predicted power today: " + mission.expectedPower());
@@ -660,102 +655,9 @@ public class AresTrail {
             }
         }
 
-        public void capAssgn() {
-            System.out.println("1: Maintain Battery");
-            System.out.println("2: Maintain Reclamator");
-            System.out.println("3: Maintain Oxygenator");
-            System.out.println("4: Maintain Drivetrain");
-            System.out.println("5: Clean Solar Panels");
-            System.out.println("6: Return to previous menu");
-            switch (input(6, 1, "Enter a number between 1 and 6 inclusive")) {
-                case 1:
-                    mission.captain.setActionList(1);
-                    break;
-                case 2:
-                    mission.captain.setActionList(2);
-                    break;
-                case 3:
-                    mission.captain.setActionList(3);
-                    break;
-                case 4:
-                    mission.captain.setActionList(4);
-                    break;
-                case 5:
-                    mission.captain.setActionList(5);
-                    break;
-                case 6:
-                    capNav();
-                    break;
-            }
-        }
 
-        public void crewAssgn(int i) {
-            System.out.println("1: Maintain Battery");
-            System.out.println("2: Maintain Reclamator");
-            System.out.println("3: Maintain Oxygenator");
-            System.out.println("4: Maintain Drivetrain");
-            System.out.println("5: Clean Solar Panels");
-            System.out.println("6: Enact SCIENCE");
-            System.out.println("7: Return to previous menu");
-            switch (input(7, 1, "Enter a number between 1 and 7 inclusive")) {
-                case 1:
-                    mission.crew[i].setActionListOne(1);
-                    secondCrewAssgn(i);
-                    break;
-                case 2:
-                    mission.crew[i].setActionListOne(2);
-                    secondCrewAssgn(i);
-                    break;
-                case 3:
-                    mission.crew[i].setActionListOne(3);
-                    secondCrewAssgn(i);
-                    break;
-                case 4:
-                    mission.crew[i].setActionListOne(4);
-                    secondCrewAssgn(i);
-                    break;
-                case 5:
-                    mission.crew[i].setActionListOne(5);
-                    secondCrewAssgn(i);
-                    break;
-                case 6:
-                    mission.crew[i].setActionListOne(6);
-                    mission.crew[i].setActionListTwo(6);
-                    break;
-                case 7:
-                    changeAssgn();
-                    break;
-            }
-        }
 
-        public void secondCrewAssgn(int i) {
-            System.out.println("1: Maintain Battery");
-            System.out.println("2: Maintain Reclamator");
-            System.out.println("3: Maintain Oxygenator");
-            System.out.println("4: Maintain Drivetrain");
-            System.out.println("5: Clean Solar Panels");
-            System.out.println("6: Return to previous menu");
-            switch (input(6, 1, "Enter a number between 1 and 6 inclusive")) {
-                case 1:
-                    mission.crew[i].setActionListTwo(1);
-                    break;
-                case 2:
-                    mission.crew[i].setActionListTwo(2);
-                    break;
-                case 3:
-                    mission.crew[i].setActionListTwo(3);
-                    break;
-                case 4:
-                    mission.crew[i].setActionListTwo(4);
-                    break;
-                case 5:
-                    mission.crew[i].setActionListTwo(5);
-                    break;
-                case 6:
-                    crewAssgn(i);
-                    break;
-            }
-        }
+           
 
         public void fix() {
             System.out.println("1: Fix Panels");

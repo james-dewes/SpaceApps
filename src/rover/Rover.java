@@ -6,6 +6,7 @@
 package rover;
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
@@ -74,6 +75,18 @@ import java.util.LinkedList;
             {
                 battery.recharge(panel.getPower());
             }
+        }
+        @Override
+        public String toString(){
+            String status ="";
+            status += "Battery: " + battery.toString();
+            status += "Heater: " + heater.toString();
+            status += "Oxygenator" + oxy.toString();
+            status += "DriveTrain" + drive.toString();
+            for (SolarPanel pannel : SolarPanels) {
+                status += pannel.toString();
+            }
+            return status;
         }
 
     }
