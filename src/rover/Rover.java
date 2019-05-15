@@ -79,7 +79,7 @@ import java.util.LinkedList;
                 charge = 0;
                 travel = (speed * i) / 100;
             }
-            battery.deplete();
+            battery.discharge();
             return travel;
         }
         public void recharge(){

@@ -1,6 +1,6 @@
 package arestrail;
 
-import missionCrew.*;
+import crew.Team;
 import mission.Mission;
 import environments.*;
 import rover.Rover;
@@ -19,7 +19,7 @@ public class AresTrail {
      */
     public static void main(String[] args) {
         
-        Crew crew = new missionCrew.Crew();
+        Team crew = new crew.Team();
         crew.addCommander("Melissa");
         crew.addMember("Rick");
         crew.addMember("Mark");

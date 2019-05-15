@@ -7,9 +7,8 @@ package Environments;
 
 /**
  *
- * @author James Dewes
+ * @author james.dewes
  */
-public interface Environment {
-
-    public int getSol();
+public class EarthEnvironmen {
+    
 }

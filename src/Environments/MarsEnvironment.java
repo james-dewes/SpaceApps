@@ -9,7 +9,7 @@ package Environments;
  *
  * @author Ben Wooff & James Dewes
  */
- public class Mars implements Environment{
+ public class MarsEnvironment implements Environment{
 
         double originDirection = 0;
         double originDistance = 0;

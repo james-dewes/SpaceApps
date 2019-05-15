@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package missionCrew;
+package crew;
 
-import missionCrew.CrewMember;
+import crew.CrewMember;
 
 /**
  *
  * @author
  */
-public class Captain extends CrewMember {
+public class CaptainCrewMember extends CrewMember {
 
-    public Captain(String aName){
+    public CaptainCrewMember(String aName){
         super(aName,1);
     }
     

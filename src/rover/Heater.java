@@ -9,30 +9,29 @@ package rover;
  *
  * @author james.dewes
  */
-class Heater extends PoweredComponent{
+class Heater extends PoweredComponent {
 
-        int stored = 100;
-        int max = 100;
-        
-        public Heater() {
-            super(100);
-        }
+    int stored = 100;
+    int max = 100;
 
-        public int getStored() {
-            return stored;
-        }
-
-        public void setStored(int stored) {
-            this.stored = stored;
-        }
-
-        public int getMax() {
-            return max;
-        }
-
-        public void setMax(int max) {
-            this.max = max;
-        }
-
-
+    public Heater() {
+        super(100);
     }
+
+    public int getStored() {
+        return stored;
+    }
+
+    public void setStored(int stored) {
+        this.stored = stored;
+    }
+
+    public int getMax() {
+        return max;
+    }
+
+    public void setMax(int max) {
+        this.max = max;
+    }
+
+}

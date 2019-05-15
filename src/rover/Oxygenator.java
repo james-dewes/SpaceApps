@@ -7,59 +7,59 @@ package rover;
 
 /**
  *
- * @author 
+ * @author
  */
-class Oxygenator extends PoweredComponent implements Degradable{
+class Oxygenator extends PoweredComponent implements Degradable {
 
-        int stored = 100;
-        int max = 100;
-        int perTurn = 100;
-        int maxPerTurn = 100;
-        
-        public Oxygenator() {
-            super(7500);
-        }
+    int stored = 100;
+    int max = 100;
+    int perTurn = 100;
+    int maxPerTurn = 100;
 
-        public int getStored() {
-            return stored;
-        }
+    public Oxygenator() {
+        super(7500);
+    }
 
-        public void setStored(int stored) {
-            this.stored = stored;
-        }
+    public int getStored() {
+        return stored;
+    }
 
-        public int getMax() {
-            return max;
-        }
+    public void setStored(int stored) {
+        this.stored = stored;
+    }
 
-        public void setMax(int max) {
-            this.max = max;
-        }
+    public int getMax() {
+        return max;
+    }
 
-        public int getPerTurn() {
-            return perTurn;
-        }
+    public void setMax(int max) {
+        this.max = max;
+    }
 
-        public void setPerTurn(int perTurn) {
-            this.perTurn = perTurn;
-        }
+    public int getPerTurn() {
+        return perTurn;
+    }
 
-        public int getMaxPerTurn() {
-            return maxPerTurn;
-        }
+    public void setPerTurn(int perTurn) {
+        this.perTurn = perTurn;
+    }
 
-        public void setMaxPerTurn(int maxPerTurn) {
-            this.maxPerTurn = maxPerTurn;
-        }
+    public int getMaxPerTurn() {
+        return maxPerTurn;
+    }
 
-        public void degrade() {
-            perTurn = perTurn - 3;
-        }
+    public void setMaxPerTurn(int maxPerTurn) {
+        this.maxPerTurn = maxPerTurn;
+    }
 
-        public void maintain() {
-            perTurn = perTurn + 20;
-            if (perTurn > maxPerTurn) {
-                perTurn = maxPerTurn;
-            }
+    public void degrade() {
+        perTurn = perTurn - 3;
+    }
+
+    public void maintain() {
+        perTurn = perTurn + 20;
+        if (perTurn > maxPerTurn) {
+            perTurn = maxPerTurn;
         }
     }
+}

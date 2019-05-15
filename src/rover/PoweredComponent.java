@@ -9,28 +9,28 @@ package rover;
  *
  * @author james.dewes
  */
-public class PoweredComponent extends Component{
-    
+public class PoweredComponent extends Component {
+
     private int powerDraw;
     private int optimalPowerDraw;
-    
-    PoweredComponent(int aPowerDraw)
-    {
+
+    PoweredComponent(int aPowerDraw) {
         powerDraw = aPowerDraw;
         optimalPowerDraw = optimalPowerDraw;
     }
+
     public void setPowerDraw(int aPowerDraw) {
-        if(aPowerDraw < optimalPowerDraw){
+        if (aPowerDraw < optimalPowerDraw) {
             powerDraw = optimalPowerDraw;
-        }else{
+        } else {
             powerDraw = aPowerDraw;
         }
     }
-            
+
     public int getPowerDraw() {
-           return powerDraw;
+        return powerDraw;
     }
-    
+
     public int getOptimalPowerDraw() {
         return optimalPowerDraw;
     }
@@ -39,4 +39,3 @@ public class PoweredComponent extends Component{
         optimalPowerDraw = anOptimalPowerDraw;
     }
 }
-

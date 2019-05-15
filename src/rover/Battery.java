@@ -50,7 +50,12 @@ class Battery extends Component{
                 currentCharge = currentStorage;
             }
         }
+        
+        void discharge(){
+            //TODO
+        }
 
+        
         public boolean modifyCur(int cur) {
             boolean success = true;
             int tempCharge = currentCharge + cur;
