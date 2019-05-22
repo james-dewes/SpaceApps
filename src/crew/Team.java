@@ -17,6 +17,7 @@ public class Team {
     private int scienceGainRate;
     
     
+    
     public Team(){
         roster = new LinkedList<>();
     }
@@ -101,10 +102,10 @@ public class Team {
         if (rover.oxy.isWorking()) {
             produced = rover.oxy.getPerTurn();
         }
-        int used = captain.getOxygenConsumption();
+        int used = commander.getOxygenConsumption();
         int balance;
-        for (int i = 0; i < 3; i++) {
-            used = used + crew[i].getOxygenConsumption();
+        for(CrewMember crewMember: roster){
+            used += crewMember.getOxygenConsumption();
         }
         if (draw > charge) {
             int i = charge / draw;
